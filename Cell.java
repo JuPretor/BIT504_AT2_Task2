@@ -19,7 +19,6 @@ public class Cell {
 		// DONE: call the method that sets the cell content to EMPTY
 		clear(); 
 	}
-	
 
 	/** Paint itself on the graphics canvas, given the Graphics context g */ 
 	public void paint(Graphics g) {
@@ -41,15 +40,11 @@ public class Cell {
 			graphic2D.drawOval(x1, y1, GameMain.SYMBOL_SIZE, GameMain.SYMBOL_SIZE);
 		}
 	}
-	
 	/** Set this cell's content to EMPTY */
 	public void clear() {
 		
 		// DONE: Set the value of content to Empty (Remember this is an enum)
 		this.content = Player.Empty;  
-		
 
-		
 	}
-		
 }

@@ -12,13 +12,12 @@ public class Board {
 	/** Constructor to create the game board */
 	public Board() {
 		
-		//TODO: initialise the cells array using ROWS and COLS constants 
+		//DONE: initialise the cells array using ROWS and COLS constants 
 		cells = new Cell [GameMain.ROWS][GameMain.COLS];
 		
 		for (int row = 0; row < GameMain.ROWS; ++row) {
 			for (int col = 0; col < GameMain.COLS; ++col) {
 				cells[row][col] = new Cell(row, col);
-				
 			}
 		} 
 	}
@@ -43,7 +42,6 @@ public class Board {
 			}
 		}
 		return true; 
-		
 	}
 	
 	/** Return true if the current player "thePlayer" has won after making their move  */
@@ -53,14 +51,12 @@ public class Board {
 				cells[playerRow][1].content == thePlayer && 
 				cells[playerRow][2].content == thePlayer )
 			return true; 
-		
 		 // DONE Check if the player has 3 in the playerCol.
 		 // Hint: Use the row code above as a starting point, remember that it goes cells[row][column] 
 		if(cells [0][playerCol].content == thePlayer && 
 				cells [1][playerCol].content == thePlayer && 
 				cells [2][playerCol].content == thePlayer )
 			return true; 
-		
 		
 		 // 3-in-the-diagonal
 		if(cells[0][0].content == thePlayer && 
@@ -95,7 +91,6 @@ public class Board {
 					GRID_WIDTH, GameMain.CANVAS_HEIGHT - 1,                
 					GRID_WIDTH, GRID_WIDTH);
 		}
-		
 		// Draw the cells
 		for (int row = 0; row < GameMain.ROWS; ++row) {          
 			for (int col = 0; col < GameMain.COLS; ++col) {  
@@ -103,7 +98,5 @@ public class Board {
 			}
 		}
 	}
-	
-	
 
 }
