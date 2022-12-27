@@ -51,7 +51,7 @@ public class GameMain extends JPanel implements MouseListener{
 		add(statusBar, BorderLayout.SOUTH);
 		// account for statusBar height in overall height
 		setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT + 30));
-		
+
 		
 		// DONE: Create a new instance of the game "Board"class. HINT check the variables above for the correct name
 		board = new Board();	
@@ -76,6 +76,8 @@ public class GameMain extends JPanel implements MouseListener{
 				frame.pack();             
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
+		//Ensure that Frame size is not resizable
+				frame.setResizable(false);  
 	         }
 		 });
 	}
