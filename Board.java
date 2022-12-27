@@ -1,21 +1,18 @@
 import java.awt.*;
 
 public class Board {
-	// grid line width
+		// grid line width
 	public static final int GRID_WIDTH = 8;
-	// grid line half width
+		// grid line half width
 	public static final int GRID_WIDHT_HALF = GRID_WIDTH / 2;
 	
-	//2D array of ROWS-by-COLS Cell instances
+		// 2D array of ROWS-by-COLS Cell instances
 	Cell [][] cells;
 	
 	/** Constructor to create the game board */
 	public Board() {
 		
-	 //TODO: initialise the cells array using ROWS and COLS constants 
-		
-		//is die reg of nie? volgends voorbeeld...
-		
+		//TODO: initialise the cells array using ROWS and COLS constants 
 		cells = new Cell [GameMain.ROWS][GameMain.COLS];
 		
 		for (int row = 0; row < GameMain.ROWS; ++row) {
@@ -30,15 +27,13 @@ public class Board {
 	 /** Return true if it is a draw (i.e., no more EMPTY cells) */ 
 	public boolean isDraw() {
 		 
-		// TODO: Check whether the game has ended in a draw. 
-		
+		// DONE: Check whether the game has ended in a draw. 
 		// Hint: Use a nested loop (see the constructor for an example). 
-		//Check whether any of the cells content in the board grid are 
-		//Player.Empty. If they are, it is not a draw.
-		
+		/*Check whether any of the cells content in the board grid are 
+		 * Player.Empty. If they are, it is not a draw.
+		 */
 		// Hint: Return false if it is not a draw, return true if 
-		//there are no empty positions left
-		//Probeer die een, ondertoe - a  tot
+		// there are no empty positions left
 		for (int row = 0; row < GameMain.ROWS; ++row) {
 			for (int col = 0; col < GameMain.COLS; ++col) {
 				
@@ -47,7 +42,7 @@ public class Board {
 				}
 			}
 		}
-		return true;  //tot hier z
+		return true; 
 		
 	}
 	
@@ -59,31 +54,26 @@ public class Board {
 				cells[playerRow][2].content == thePlayer )
 			return true; 
 		
-		 // TODO: Check if the player has 3 in the playerCol.
+		 // DONE Check if the player has 3 in the playerCol.
 		 // Hint: Use the row code above as a starting point, remember that it goes cells[row][column] 
-		// ok het dit ingesit
 		if(cells [0][playerCol].content == thePlayer && 
 				cells [1][playerCol].content == thePlayer && 
 				cells [2][playerCol].content == thePlayer )
-		// of so ?? if(cells[0][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer && cells[2][playerCol].content == thePlayer )
 			return true; 
 		
 		
 		 // 3-in-the-diagonal
-		if( cells[0][0].content == thePlayer && 
+		if(cells[0][0].content == thePlayer && 
 				cells[1][1].content == thePlayer && 
 				cells[2][2].content == thePlayer)
 			return true;
 		 
 		
-		// TODO: Check the diagonal in the other direction
-		// ok het dit ingesit 
-		if( cells[2][0].content == thePlayer && 
+		// DONE: Check the diagonal in the other direction
+		if(cells[2][0].content == thePlayer && 
 				cells[1][1].content == thePlayer && 
 				cells[0][2].content == thePlayer)
 			return true;
-		 
-		
 		//no winner, keep playing
 		return false;
 	}
@@ -93,7 +83,7 @@ public class Board {
 	 * Cells to paint themselves into the grid
 	 */
 	public void paint(Graphics g) {
-		//draw the grid
+		// Draw the grid
 		g.setColor(Color.gray);
 		for (int row = 1; row < GameMain.ROWS; ++row) {          
 			g.fillRoundRect(0, GameMain.CELL_SIZE * row - GRID_WIDHT_HALF,                
@@ -106,7 +96,7 @@ public class Board {
 					GRID_WIDTH, GRID_WIDTH);
 		}
 		
-		//Draw the cells
+		// Draw the cells
 		for (int row = 0; row < GameMain.ROWS; ++row) {          
 			for (int col = 0; col < GameMain.COLS; ++col) {  
 				cells[row][col].paint(g);
