@@ -13,13 +13,17 @@ public class Board {
 	public Board() {
 		
 	 //TODO: initialise the cells array using ROWS and COLS constants 
-
+		
+		//is die reg of nie? volgends voorbeeld...
+		
+		cells = new Cell [GameMain.ROWS][GameMain.COLS];
 		
 		for (int row = 0; row < GameMain.ROWS; ++row) {
 			for (int col = 0; col < GameMain.COLS; ++col) {
 				cells[row][col] = new Cell(row, col);
+				
 			}
-		}
+		} 
 	}
 	
 
@@ -27,33 +31,58 @@ public class Board {
 	public boolean isDraw() {
 		 
 		// TODO: Check whether the game has ended in a draw. 
-		// Hint: Use a nested loop (see the constructor for an example). Check whether any of the cells content in the board grid are Player.Empty. If they are, it is not a draw.
-		// Hint: Return false if it is not a draw, return true if there are no empty positions left
-		   
 		
-
+		// Hint: Use a nested loop (see the constructor for an example). 
+		//Check whether any of the cells content in the board grid are 
+		//Player.Empty. If they are, it is not a draw.
+		
+		// Hint: Return false if it is not a draw, return true if 
+		//there are no empty positions left
+		//Probeer die een, ondertoe - a  tot
+		for (int row = 0; row < GameMain.ROWS; ++row) {
+			for (int col = 0; col < GameMain.COLS; ++col) {
+				
+				if (cells[row][col].content == Player.Empty) {
+					return false;
+				}
+			}
+		}
+		return true;  //tot hier z
 		
 	}
 	
 	/** Return true if the current player "thePlayer" has won after making their move  */
 	public boolean hasWon(Player thePlayer, int playerRow, int playerCol) {
 		 // check if player has 3-in-that-row
-		if(cells[playerRow][0].content == thePlayer && cells[playerRow][1].content == thePlayer && cells[playerRow][2].content == thePlayer )
+		if(cells[playerRow][0].content == thePlayer && 
+				cells[playerRow][1].content == thePlayer && 
+				cells[playerRow][2].content == thePlayer )
 			return true; 
 		
 		 // TODO: Check if the player has 3 in the playerCol.
 		 // Hint: Use the row code above as a starting point, remember that it goes cells[row][column] 
-		
+		// ok het dit ingesit
+		if(cells [0][playerCol].content == thePlayer && 
+				cells [1][playerCol].content == thePlayer && 
+				cells [2][playerCol].content == thePlayer )
+		// of so ?? if(cells[0][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer && cells[2][playerCol].content == thePlayer )
+			return true; 
 		
 		
 		 // 3-in-the-diagonal
-		if( cells[0][0].content == thePlayer && cells[1][1].content == thePlayer && cells[2][2].content == thePlayer)
+		if( cells[0][0].content == thePlayer && 
+				cells[1][1].content == thePlayer && 
+				cells[2][2].content == thePlayer)
 			return true;
 		 
 		
 		// TODO: Check the diagonal in the other direction
-		
-
+		// ok het dit ingesit 
+		if( cells[2][0].content == thePlayer && 
+				cells[1][1].content == thePlayer && 
+				cells[0][2].content == thePlayer)
+			return true;
+		 
 		
 		//no winner, keep playing
 		return false;
@@ -84,6 +113,7 @@ public class Board {
 			}
 		}
 	}
+	
 	
 
 }
