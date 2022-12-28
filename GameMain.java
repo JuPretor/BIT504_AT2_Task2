@@ -65,7 +65,7 @@ public class GameMain extends JPanel implements MouseListener{
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 	         public void run() {
 		//create a main window to contain the panel
-				JFrame frame = new JFrame(TITLE);
+				JFrame frame = new JFrame(TITLE + " Changed" );
 				
 		//DONE: create the new GameMain panel and add it to the frame
 				frame.setContentPane(new GameMain());
